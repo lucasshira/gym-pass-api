@@ -1,0 +1,19 @@
+// Schema no Prisma eh basicamente uma representacao das tabelas no banco de dados
+// Aqui definimos os campos e tipos de dados que cada tabela tera
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id    String @id @default(uuid())
+  name  String
+  email String @unique
+
+  @@map("users") // renomeia a tabela no banco de dados
+}
