@@ -8,3 +8,4 @@ export function appRoutes(app: FastifyInstance) {
 }
 
 // register eh meu controller de registro de usuario
+// controller faz as validacoes e toca no banco de dados com o repositorio
