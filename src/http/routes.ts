@@ -2,9 +2,11 @@
 
 import { FastifyInstance } from 'fastify'
 import { register } from './controllers/register'
+import { authenticate } from './controllers/authenticate'
 
 export function appRoutes(app: FastifyInstance) {
   app.post('/users', register)
+  app.post('/sessions', authenticate)
 }
 
 // register eh meu controller de registro de usuario

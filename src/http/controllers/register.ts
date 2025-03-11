@@ -1,8 +1,7 @@
 // Controller para criacao de um usuario
 
-import { PrismaUsersRepository } from '@/repositories/prisma/prisma-users-repository'
 import { UserAlreadyExistsError } from '@/use-cases/error/user-already-exists-error'
-import { RegisterUseCase } from '@/use-cases/register'
+import { makeRegisterUseCase } from '@/use-cases/factories/make-register-use-case'
 import { FastifyRequest, FastifyReply } from 'fastify'
 import { z } from 'zod'
 
@@ -17,8 +16,7 @@ export async function register(request: FastifyRequest, reply: FastifyReply) {
 
   // chamando meu servico de registro de usuario
   try {
-    const prismaUsersRepository = new PrismaUsersRepository()
-    const registerUseCase = new RegisterUseCase(prismaUsersRepository)
+    const registerUseCase = makeRegisterUseCase()
 
     await registerUseCase.execute({ name, email, password })
   } catch (error) {
