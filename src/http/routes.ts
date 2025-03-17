@@ -3,11 +3,15 @@
 import { FastifyInstance } from 'fastify'
 import { register } from './controllers/register'
 import { authenticate } from './controllers/authenticate'
+import { profile } from './controllers/profile'
 
 export function appRoutes(app: FastifyInstance) {
+  // Login
   app.post('/users', register)
   app.post('/sessions', authenticate)
+
+  // Authenticated
+  app.get('/me', profile)
 }
 
-// register eh meu controller de registro de usuario
 // controller faz as validacoes e toca no banco de dados com o repositorio
