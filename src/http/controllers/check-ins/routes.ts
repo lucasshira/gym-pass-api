@@ -8,7 +8,7 @@ import { validate } from './validate'
 import { metrics } from './metrics'
 import { history } from './history'
 
-export function gymsRoutes(app: FastifyInstance) {
+export function checkInsRoutes(app: FastifyInstance) {
   app.addHook('onRequest', verifyJWT) // todas as rotas aqui dentro vao chamar o middleware
 
   app.get('/check-ins/history', history)
