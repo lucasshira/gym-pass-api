@@ -20,7 +20,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "devDependencies": {
     "@rocketseat/eslint-config": "2.2.2",
     "@types/bcryptjs": "2.4.6",
